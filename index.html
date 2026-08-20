@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Adan Jabbar · Портфолио 2026">
+<meta property="og:description" content="Контент-маркетолог и видеопродюсер. Coca-Cola, «Миллионеры из общаги», «Заметки рэпера».">
+<meta property="og:url" content="https://realsavagea-oss.github.io/portfolio/">
+<meta property="og:image" content="https://realsavagea-oss.github.io/portfolio/pages/p01.webp">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Adan Jabbar">
+<link rel="canonical" href="https://realsavagea-oss.github.io/portfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Adan Jabbar · Портфолио 2026</title>
+<meta name="description" content="Контент-маркетолог и видеопродюсер. Coca-Cola, «Миллионеры из общаги», «Заметки рэпера». От идеи до реализации — и до квалифицированных лидов.">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#060605;
+  --panel:#0e0e0d;
+  --line:#22221f;
+  --line-soft:#161614;
+  --bone:#d8d6cf;
+  --ash:#8a877d;
+  --ash-dim:#55534c;
+  --slide-w:1180px;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --disp:"Archivo","Arial Narrow",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--bone);
+  font-family:var(--mono);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:where(a,button):focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+
+.disp{
+  font-family:var(--disp);
+  font-weight:900;
+  font-stretch:70%;
+  text-transform:uppercase;
+  letter-spacing:.005em;
+  line-height:.88;
+  text-wrap:balance;
+}
+.lbl{
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ash);
+  font-weight:500;
+}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(6,6,5,.82);
+  backdrop-filter:blur(14px) saturate(120%);
+  border-bottom:1px solid var(--line);
+}
+.bar-in{
+  max-width:1440px;margin:0 auto;
+  padding:0 20px;height:58px;
+  display:flex;align-items:center;gap:18px;
+}
+.brand{display:flex;align-items:baseline;gap:12px;min-width:0;text-decoration:none}
+.brand b{font-family:var(--disp);font-weight:900;font-stretch:70%;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+.brand span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);white-space:nowrap}
+.slate{
+  margin-left:auto;display:flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:34ch;
+}
+.slate i{display:block;width:5px;height:5px;background:var(--bone);flex:none}
+.slate em{font-style:normal;color:var(--bone)}
+.bar-actions{display:flex;align-items:center;gap:8px;flex:none}
+
+.btn{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:9px 15px;border:1px solid var(--line);background:transparent;
+  color:var(--bone);text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.btn:hover{border-color:var(--bone);background:#141412}
+.btn-solid{background:var(--bone);color:var(--ink);border-color:var(--bone);font-weight:700}
+.btn-solid:hover{background:#fff;border-color:#fff;color:var(--ink)}
+.btn[disabled]{opacity:.5;cursor:progress}
+
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--bone);z-index:70;transition:width .1s linear}
+
+/* ---------- masthead ---------- */
+.wrap{max-width:var(--slide-w);margin:0 auto;padding:0 20px}
+.mast{padding:64px 0 40px}
+.mast h1{margin:0;font-size:clamp(44px,10.5vw,116px)}
+.mast .tag{
+  margin:22px 0 0;max-width:52ch;font-size:15px;color:var(--bone);
+}
+.mast .tag b{font-weight:500}
+.mast .sub{margin:8px 0 0;color:var(--ash);font-size:13px;max-width:56ch}
+.spec{
+  margin-top:38px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.spec div{padding:16px 18px 16px 0;border-bottom:1px solid var(--line-soft)}
+.spec dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);margin:0}
+.spec dd{margin:6px 0 0;font-family:var(--disp);font-weight:900;font-stretch:70%;font-size:30px;letter-spacing:.01em}
+.spec small{display:block;color:var(--ash-dim);font-size:11px;letter-spacing:.06em;margin-top:4px;font-family:var(--mono)}
+
+/* ---------- rail ---------- */
+.rail{
+  position:fixed;left:26px;top:50%;transform:translateY(-50%);
+  z-index:50;display:none;flex-direction:column;gap:2px;
+}
+.rail button{
+  display:flex;align-items:center;gap:9px;
+  background:none;border:0;padding:3px 0;cursor:pointer;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  color:var(--ash-dim);transition:color .18s ease;
+}
+.rail button::before{content:"";display:block;width:14px;height:1px;background:currentColor;transition:width .2s ease}
+.rail button:hover{color:var(--ash)}
+.rail button[aria-current="true"]{color:var(--bone)}
+.rail button[aria-current="true"]::before{width:26px}
+@media (min-width:1180px){.rail{display:flex}}
+
+/* ---------- deck ---------- */
+.deck{padding:8px 0 40px;display:flex;flex-direction:column;gap:52px}
+.slide{margin:0}
+.slate-line{
+  display:flex;align-items:baseline;gap:14px;
+  padding-bottom:10px;
+}
+.slate-line .n{font-size:11px;letter-spacing:.12em;color:var(--ash-dim)}
+.slate-line .t{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash);font-weight:500}
+.slate-line .r{flex:1;height:1px;background:var(--line);transform:translateY(-3px)}
+.shot{
+  border:1px solid var(--line);background:#000;
+  padding:0;margin:0;width:100%;cursor:zoom-in;
+  display:block;line-height:0;
+}
+.shot img{width:100%;height:auto;aspect-ratio:16/9}
+.shot:hover{border-color:#39392f}
+
+.reveal{opacity:0;transform:translateY(14px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s cubic-bezier(.22,.61,.36,1)}
+
+/* ---------- contact ---------- */
+.contact{
+  background:var(--bone);color:var(--ink);
+  margin-top:36px;padding:72px 0 64px;
+}
+.contact .wrap{max-width:var(--slide-w)}
+.contact h2{margin:0;font-size:clamp(38px,8.5vw,92px)}
+.contact p{margin:20px 0 0;max-width:46ch;font-size:14px;color:#2c2c28}
+.rows{margin-top:40px;border-top:1px solid rgba(6,6,5,.22)}
+.row{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:16px 0;border-bottom:1px solid rgba(6,6,5,.14);
+  text-decoration:none;color:var(--ink);
+}
+.row .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5c5a53;width:9ch;flex:none}
+.row .v{font-family:var(--disp);font-weight:900;font-stretch:70%;font-size:clamp(22px,4.4vw,34px);text-transform:uppercase;letter-spacing:.01em}
+a.row:hover .v{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.row .go{margin-left:auto;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5c5a53}
+button.row{background:none;border:0;border-bottom:1px solid rgba(6,6,5,.14);width:100%;cursor:pointer;text-align:left;font-family:var(--mono)}
+button.row:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.note{margin-top:18px;font-size:12px;color:#5c5a53;min-height:1.4em}
+
+.foot{padding:26px 0 40px;color:var(--ash-dim);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.foot div{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+
+/* ---------- lightbox ---------- */
+.lb{
+  position:fixed;inset:0;z-index:100;background:rgba(4,4,3,.97);
+  display:none;align-items:center;justify-content:center;padding:56px 16px;
+}
+.lb[open]{display:flex}
+.lb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border:1px solid var(--line)}
+.lb-top{
+  position:absolute;top:0;left:0;right:0;height:56px;
+  display:flex;align-items:center;gap:14px;padding:0 18px;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash);
+}
+.lb-top em{font-style:normal;color:var(--bone)}
+.lb-x{margin-left:auto;background:none;border:1px solid var(--line);color:var(--bone);
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;padding:7px 12px;cursor:pointer}
+.lb-x:hover{border-color:var(--bone)}
+.lb-nav{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  display:flex;gap:8px;
+}
+.lb-nav button{
+  background:none;border:1px solid var(--line);color:var(--bone);
+  font-family:var(--mono);font-size:13px;padding:6px 16px;cursor:pointer;line-height:1;
+}
+.lb-nav button:hover{border-color:var(--bone)}
+
+@media (max-width:760px){
+  .bar-in{height:54px;padding:0 14px;gap:10px}
+  .brand span{display:none}
+  .slate{display:none}
+  .wrap{padding:0 14px}
+  .mast{padding:44px 0 30px}
+  .spec{grid-template-columns:1fr}
+  .deck{gap:38px}
+  .contact{padding:56px 0 48px}
+  .row .k{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none}
+  .reveal.in{transition:none}
+  *{scroll-behavior:auto !important}
+}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+
+<div class="prog" id="prog"></div>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top"><b>Adan Jabbar</b><span>Контент-маркетолог · Видеопродюсер</span></a>
+    <div class="slate" id="slate" aria-live="off"><i></i><span class="num" id="slateN">01 / 13</span> · <em id="slateT">Портфолио 2026</em></div>
+    <div class="bar-actions">
+      <a class="btn" href="Adan-Jabbar-Portfolio-2026.pdf" download>Скачать PDF</a>
+      <a class="btn btn-solid" href="https://t.me/uchitayy" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </div>
+</header>
+
+<nav class="rail" id="rail" aria-label="Слайды"></nav>
+
+<main id="top">
+  <section class="wrap mast">
+    <h1 class="disp">Портфолио<br>2026</h1>
+    <p class="tag">От идеи до реализации — <b>и до квалифицированных лидов.</b></p>
+    <p class="sub">5 лет в видеопродакшене и креативном написании роликов. Собираю команду и департаменты под проект любой сложности — от рилс до полнометражной работы. Курирую pre-production → production → post-production.</p>
+    <dl class="spec">
+      <div><dt>Опыт</dt><dd class="num">5 лет</dd><small>видеопродакшен · сценарии</small></div>
+      <div><dt>Топ-рилс</dt><dd class="num">4,2 млн</dd><small>просмотров, «Заметки рэпера»</small></div>
+      <div><dt>Запуск с нуля</dt><dd class="num">108 000</dd><small>аудитории за один месяц</small></div>
+    </dl>
+  </section>
+
+  <section class="wrap deck" id="deck">
+    <figure class="slide reveal" id="s1" data-title="ПОРТФОЛИО 2026">
+      <figcaption class="slate-line"><span class="n num">01</span><span class="t">ПОРТФОЛИО 2026</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 1 во весь экран"><img src="pages/p01.webp" width="1920" height="1080" alt="Титульный слайд: крупная надпись «ПОРТФОЛИО» и подпись «От идеи до реализации — и до квалифицированных лидов»." decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s2" data-title="КТО Я">
+      <figcaption class="slate-line"><span class="n num">02</span><span class="t">КТО Я</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 2 во весь экран"><img src="pages/p02.webp" width="1920" height="1080" alt="Adan Jabbar — контент-маркетолог и видеопродюсер. 5 лет в видеопродакшене, кураторство на всех этапах производства." decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s3" data-title="ИДЕЯ И ПОДГОТОВКА">
+      <figcaption class="slate-line"><span class="n num">03</span><span class="t">ИДЕЯ И ПОДГОТОВКА</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 3 во весь экран"><img src="pages/p03.webp" width="1920" height="1080" alt="Как я работаю: стратегия и идея, сценарий, ТЗ и раскадровки." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s4" data-title="ПРОИЗВОДСТВО">
+      <figcaption class="slate-line"><span class="n num">04</span><span class="t">ПРОИЗВОДСТВО</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 4 во весь экран"><img src="pages/p04.webp" width="1920" height="1080" alt="Как я работаю: pre-production, production, post-production." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s5" data-title="РЕЗУЛЬТАТ">
+      <figcaption class="slate-line"><span class="n num">05</span><span class="t">РЕЗУЛЬТАТ</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 5 во весь экран"><img src="pages/p05.webp" width="1920" height="1080" alt="Результат, а не просто ролик: дистрибуция, воронка, evergreen авто-воронки." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s6" data-title="COCA-COLA">
+      <figcaption class="slate-line"><span class="n num">06</span><span class="t">COCA-COLA</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 6 во весь экран"><img src="pages/p06.webp" width="1920" height="1080" alt="Опыт работы: креативный продюсер Coca-Cola в Казахстане и Узбекистане, полный цикл." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s7" data-title="COCA-COLA × ÖZEN">
+      <figcaption class="slate-line"><span class="n num">07</span><span class="t">COCA-COLA × ÖZEN</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 7 во весь экран"><img src="pages/p07.webp" width="1920" height="1080" alt="Uzbekistan Coca-Cola Cypher — совместный рэп-проект Coca-Cola и лейбла özen, 431 тыс. просмотров." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s8" data-title="МИЛЛИОНЕРЫ ИЗ ОБЩАГИ">
+      <figcaption class="slate-line"><span class="n num">08</span><span class="t">МИЛЛИОНЕРЫ ИЗ ОБЩАГИ</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 8 во весь экран"><img src="pages/p08.webp" width="1920" height="1080" alt="Главная роль в сериале «Миллионеры из общаги», промо-продвижение до выхода в кинотеатрах." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s9" data-title="ОХВАТЫ СЕРИАЛА">
+      <figcaption class="slate-line"><span class="n num">09</span><span class="t">ОХВАТЫ СЕРИАЛА</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 9 во весь экран"><img src="pages/p09.webp" width="1920" height="1080" alt="Серии сериала на YouTube: от 1,3 до 4 млн просмотров." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s10" data-title="ЗАМЕТКИ РЭПЕРА">
+      <figcaption class="slate-line"><span class="n num">10</span><span class="t">ЗАМЕТКИ РЭПЕРА</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 10 во весь экран"><img src="pages/p10.webp" width="1920" height="1080" alt="Проект «Заметки рэпера»: запуск с нуля, 11 рилс, 108 000 аудитории за один месяц." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s11" data-title="ПРОСМОТРЫ РИЛС">
+      <figcaption class="slate-line"><span class="n num">11</span><span class="t">ПРОСМОТРЫ РИЛС</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 11 во весь экран"><img src="pages/p11.webp" width="1920" height="1080" alt="Сетка рилс проекта «Заметки рэпера» с просмотрами от 855 тыс. до 4,2 млн." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s12" data-title="КЕЙС КЛИЕНТА">
+      <figcaption class="slate-line"><span class="n num">12</span><span class="t">КЕЙС КЛИЕНТА</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 12 во весь экран"><img src="pages/p12.webp" width="1920" height="1080" alt="Кейс клиента под NDA: запуск аккаунта с нуля, полный цикл продакшена, до 2,1 млн просмотров." loading="lazy" decoding="async"></button>
+    </figure>
+    <figure class="slide reveal" id="s13" data-title="КОНТАКТЫ">
+      <figcaption class="slate-line"><span class="n num">13</span><span class="t">КОНТАКТЫ</span><span class="r"></span></figcaption>
+      <button class="shot" type="button" aria-label="Открыть слайд 13 во весь экран"><img src="pages/p13.webp" width="1920" height="1080" alt="Контакты: Adan Jabbar, контент-маркетолог и видеопродюсер, +998 97 078 71 31." loading="lazy" decoding="async"></button>
+    </figure>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2 class="disp">Обсудим<br>проект</h2>
+      <p>Расскажите задачу — соберу команду под неё и доведу от сценария до цифр: охватов, заявок и квалифицированных лидов.</p>
+      <div class="rows">
+        <a class="row" href="https://t.me/uchitayy" target="_blank" rel="noopener">
+          <span class="k">Telegram</span><span class="v">@uchitayy</span><span class="go">Написать →</span>
+        </a>
+        <a class="row" href="tel:+998970787131">
+          <span class="k">Телефон</span><span class="v num">+998 97 078 71 31</span><span class="go">Позвонить →</span>
+        </a>
+        <a class="row" href="Adan-Jabbar-Portfolio-2026.pdf" download><span class="k">PDF</span><span class="v">Скачать презентацию</span><span class="go">13 слайдов · 1,4 МБ →</span></a>
+      </div>
+      <p class="note" id="note"></p>
+    </div>
+  </section>
+
+  <footer class="wrap foot">
+    <div><span>© 2026 Adan Jabbar</span><span>Узбекистан · Казахстан</span></div>
+  </footer>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Слайд во весь экран">
+  <div class="lb-top"><span class="num" id="lbN">01 / 13</span> · <em id="lbT"></em>
+    <button class="lb-x" id="lbX" type="button">Закрыть ✕</button></div>
+  <img id="lbImg" alt="">
+  <div class="lb-nav">
+    <button type="button" id="lbPrev" aria-label="Предыдущий слайд">←</button>
+    <button type="button" id="lbNext" aria-label="Следующий слайд">→</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var figs = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = figs.length;
+  var titles = figs.map(function(f){ return f.dataset.title; });
+  var srcs = figs.map(function(f){ return f.querySelector('img').src; });
+  var pad = function(n){ return (n<10?'0':'')+n; };
+
+  /* rail */
+  var rail = document.getElementById('rail');
+  figs.forEach(function(f,i){
+    var b = document.createElement('button');
+    b.type='button';
+    b.className='num';
+    b.textContent = pad(i+1);
+    b.title = titles[i];
+    b.setAttribute('aria-label','Слайд '+(i+1)+': '+titles[i]);
+    b.addEventListener('click', function(){ f.scrollIntoView({block:'start'}); });
+    rail.appendChild(b);
+  });
+  var railBtns = rail.querySelectorAll('button');
+
+  /* active slide + slate */
+  var slateN = document.getElementById('slateN'), slateT = document.getElementById('slateT');
+  var active = -1;
+  function setActive(i){
+    if(i===active) return;
+    active = i;
+    slateN.textContent = pad(i+1)+' / '+pad(total);
+    slateT.textContent = titles[i];
+    for(var k=0;k<railBtns.length;k++) railBtns[k].setAttribute('aria-current', k===i?'true':'false');
+  }
+  setActive(0);
+
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window){
+    var revealer = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); revealer.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    figs.forEach(function(f){ if(reduce){ f.classList.add('in'); } else { revealer.observe(f); } });
+
+    var tracker = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(figs.indexOf(e.target)); });
+    },{rootMargin:'-45% 0px -45% 0px',threshold:0});
+    figs.forEach(function(f){ tracker.observe(f); });
+  } else {
+    figs.forEach(function(f){ f.classList.add('in'); });
+  }
+
+  /* progress */
+  var prog = document.getElementById('prog'), ticking=false;
+  function onScroll(){
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(function(){
+      var h = document.documentElement.scrollHeight - innerHeight;
+      prog.style.width = (h>0 ? Math.min(100, scrollY/h*100) : 0)+'%';
+      ticking=false;
+    });
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* lightbox */
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'),
+      lbN=document.getElementById('lbN'), lbT=document.getElementById('lbT');
+  var cur=0, lastFocus=null;
+  function open(i){
+    cur=(i+total)%total;
+    lbImg.src=srcs[cur]; lbImg.alt=figs[cur].querySelector('img').alt;
+    lbN.textContent=pad(cur+1)+' / '+pad(total); lbT.textContent=titles[cur];
+    lb.setAttribute('open',''); document.body.style.overflow='hidden';
+    document.getElementById('lbX').focus();
+  }
+  function close(){
+    lb.removeAttribute('open'); document.body.style.overflow='';
+    if(lastFocus) lastFocus.focus();
+  }
+  figs.forEach(function(f,i){
+    var btn=f.querySelector('.shot');
+    btn.addEventListener('click', function(){ lastFocus=btn; open(i); });
+  });
+  document.getElementById('lbX').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function(e){ e.stopPropagation(); open(cur-1); });
+  document.getElementById('lbNext').addEventListener('click', function(e){ e.stopPropagation(); open(cur+1); });
+  lb.addEventListener('click', function(e){ if(e.target===lb||e.target===lbImg) close(); });
+
+  addEventListener('keydown', function(e){
+    var openNow = lb.hasAttribute('open');
+    if(openNow){
+      if(e.key==='Escape') close();
+      else if(e.key==='ArrowRight') open(cur+1);
+      else if(e.key==='ArrowLeft') open(cur-1);
+      return;
+    }
+    var t=e.target.tagName;
+    if(t==='INPUT'||t==='TEXTAREA') return;
+    if(e.key==='j'||e.key==='J'){ figs[Math.min(total-1,active+1)].scrollIntoView({block:'start'}); }
+    else if(e.key==='k'||e.key==='K'){ figs[Math.max(0,active-1)].scrollIntoView({block:'start'}); }
+  });
+
+})();
+</script>
+
+</body>
+</html>
