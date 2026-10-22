@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Агентство Adan Jabbar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap">
+<style>
+/* Layout: vertical 9:16 slides stacked, one per screen with snap; speaker notes toggle under each slide. Deliberately single dark look (matches portfolio). */
+:root {
+  --stage: #0c0c0e;
+  --slide: #141416;
+  --line: #2a2a2f;
+  --paper: #f3f1ec;
+  --muted: #b9b6ae;
+  --dim: #8c8980;
+  --accent: #ff6b2c;
+  --display: 'Unbounded', 'Arial Black', Arial, sans-serif;
+  --text: 'Manrope', 'Segoe UI', Arial, sans-serif;
+  color-scheme: dark;
+}
+html { scroll-snap-type: y mandatory; }
+html.notes-on { scroll-snap-type: none; }
+body {
+  margin: 0;
+  background: var(--stage);
+  color: var(--paper);
+  font-family: var(--text);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.deck { display: flex; flex-direction: column; align-items: center; }
+.frame {
+  min-height: 100svh;
+  width: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px;
+  padding-block: 24px;
+  scroll-snap-align: center;
+  box-sizing: border-box;
+}
+.slide {
+  container-type: inline-size;
+  position: relative;
+  width: min(100%, calc((100svh - 48px) * 9 / 16));
+  max-width: 100%;
+  aspect-ratio: 9 / 16;
+  background: var(--slide);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex; flex-direction: column;
+  padding: 9cqw 8cqw 8cqw;
+}
+.slide h1, .slide h2, .slide p { margin: 0; }
+.bar { position: absolute; left: 0; top: 0; width: 100%; height: 1.4cqw; background: var(--accent); }
+.eyebrow {
+  font-size: 3cqw; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); line-height: 1.4;
+}
+.counter { font-size: 2.8cqw; color: var(--dim); font-variant-numeric: tabular-nums; letter-spacing: .08em; }
+.top { display: flex; justify-content: space-between; align-items: start; gap: 4cqw; }
+.spacer { flex: 1; }
+
+/* cover */
+.cover-title {
+  font-family: var(--display); font-weight: 700;
+  font-size: 7.4cqw; line-height: 1.12; letter-spacing: -.01em;
+  text-wrap: balance; color: var(--paper);
+}
+.cover-sub { margin-top: 5cqw; font-size: 4.6cqw; line-height: 1.35; color: var(--muted); max-width: 70cqw; }
+.ask { border-top: 1px solid var(--line); padding-top: 6cqw; display: flex; flex-direction: column; gap: 1.5cqw; }
+.ask-label { font-size: 3cqw; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.ask-kind { font-family: var(--display); font-weight: 500; font-size: 5.4cqw; color: var(--paper); }
+.ask-sum {
+  font-family: var(--display); font-weight: 800; font-size: 15cqw; line-height: 1;
+  color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.byline { margin-top: 7cqw; display: flex; justify-content: space-between; font-size: 3.4cqw; color: var(--muted); }
+
+/* content slides */
+.title {
+  margin-top: 8cqw !important;
+  font-family: var(--display); font-weight: 700;
+  font-size: 6.4cqw; line-height: 1.15; letter-spacing: -.01em;
+  text-wrap: balance; color: var(--paper);
+}
+.lead { margin-top: 4cqw !important; font-size: 3.8cqw; line-height: 1.45; color: var(--muted); }
+
+/* timeline */
+.timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.tl-item { position: relative; display: grid; grid-template-columns: 22cqw 1fr; gap: 4cqw; padding-bottom: 6cqw; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before { content: ""; position: absolute; left: 0; top: 1.2cqw; width: 2.4cqw; height: 2.4cqw; border-radius: 50%; background: var(--slide); border: .5cqw solid var(--dim); box-sizing: border-box; }
+.tl-item::after { content: ""; position: absolute; left: 1.2cqw; top: 3.6cqw; bottom: 0; width: .3cqw; background: var(--line); transform: translateX(-50%); }
+.tl-item:last-child::after { display: none; }
+.tl-item.now::before { background: var(--accent); border-color: var(--accent); }
+.tl-year { padding-left: 5.5cqw; font-family: var(--display); font-weight: 700; font-size: 3.6cqw; color: var(--dim); font-variant-numeric: tabular-nums; line-height: 1.3; }
+.tl-item.now .tl-year { color: var(--accent); }
+.tl-what { font-size: 4.4cqw; font-weight: 700; line-height: 1.3; color: var(--paper); }
+.tl-detail { margin-top: 1.2cqw !important; font-size: 3.4cqw; line-height: 1.45; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 2cqw; }
+.chip { font-size: 3.2cqw; font-weight: 600; color: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 1.6cqw 3.4cqw; }
+.foot-label { font-size: 2.8cqw; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin-bottom: 2.4cqw !important; }
+
+/* business cases */
+.cases { display: flex; flex-direction: column; gap: 3cqw; }
+.case { background: #18181b; border: 1px solid var(--line); border-radius: 3cqw; padding: 4cqw 4.4cqw; display: flex; flex-direction: column; gap: 1.3cqw; }
+.case.now { border-color: var(--accent); }
+.case-meta { display: flex; justify-content: space-between; gap: 3cqw; font-size: 2.7cqw; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); font-variant-numeric: tabular-nums; }
+.case-status { color: var(--muted); text-align: right; }
+.case.now .case-status { color: var(--accent); }
+.case-title { font-size: 4.2cqw; font-weight: 700; line-height: 1.25; color: var(--paper); }
+.case-text { font-size: 3.2cqw; line-height: 1.42; color: var(--muted); }
+.case-lesson { font-size: 3.2cqw; line-height: 1.42; font-weight: 600; color: var(--paper); }
+.punch { font-family: var(--display); font-weight: 700; font-size: 4.2cqw; line-height: 1.3; color: var(--accent); text-wrap: balance; }
+
+/* tap diagram */
+.pay { display: flex; gap: 2.4cqw; }
+.pay-item { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 2.4cqw; padding: 3cqw 3.4cqw; display: flex; flex-direction: column; gap: .8cqw; }
+.pay-k { font-size: 3.8cqw; font-weight: 700; color: var(--paper); }
+.pay-v { font-size: 3cqw; line-height: 1.4; color: var(--muted); }
+.states { display: grid; grid-template-columns: 1fr 1fr; gap: 3cqw; }
+.state { min-width: 0; background: #18181b; border: 1px solid var(--line); border-radius: 3cqw; padding: 4cqw 3.6cqw; display: flex; flex-direction: column; gap: 3cqw; }
+.state.on { border-color: var(--accent); }
+.state-head { font-size: 2.7cqw; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; line-height: 1.35; color: var(--dim); }
+.state.on .state-head { color: var(--accent); }
+.state-row { display: flex; flex-direction: column; gap: .6cqw; }
+.state-src { font-size: 3cqw; color: var(--dim); }
+.state-res { font-size: 3.6cqw; font-weight: 700; line-height: 1.3; color: var(--muted); }
+.state-res.hot { color: var(--accent); }
+.state-total { border-top: 1px solid var(--line); padding-top: 3cqw; font-family: var(--display); font-weight: 700; font-size: 5cqw; line-height: 1.15; color: var(--paper); }
+.state.on .state-total { color: var(--accent); }
+.state.wide { grid-column: span 2; }
+.state-big { font-family: var(--display); font-weight: 700; font-size: 5.6cqw; line-height: 1.2; color: var(--accent); text-wrap: balance; }
+.state-note { font-size: 3.2cqw; line-height: 1.45; color: var(--muted); }
+
+/* why unsolved */
+.contract { display: flex; align-items: center; gap: 1.6cqw; }
+.c-step { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 2.4cqw; padding: 2.6cqw 2.2cqw; font-size: 3cqw; font-weight: 600; line-height: 1.3; text-align: center; color: var(--paper); }
+.c-arrow { font-size: 3.6cqw; color: var(--dim); }
+.c-miss { margin-top: 2.6cqw !important; font-size: 3.2cqw; line-height: 1.45; color: var(--muted); }
+.c-miss b { color: var(--paper); }
+.stages { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.stage { display: grid; grid-template-columns: 6cqw 1fr auto; gap: 2cqw; align-items: baseline; padding: 1.8cqw 0; border-bottom: 1px solid var(--line); }
+.stage-n { font-size: 2.8cqw; color: var(--dim); font-variant-numeric: tabular-nums; }
+.stage-name { font-size: 3.6cqw; font-weight: 600; color: var(--paper); }
+.stage-see { font-size: 2.6cqw; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+.stage.seen .stage-name, .stage.seen .stage-see { color: var(--accent); }
+
+/* two streams */
+.lane { background: #18181b; border: 1px solid var(--line); border-radius: 3cqw; padding: 4cqw 4.4cqw; display: flex; flex-direction: column; gap: 1.3cqw; }
+.lane.first { border-color: var(--accent); }
+.lane-tag { font-size: 2.7cqw; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.lane.first .lane-tag { color: var(--accent); }
+.lane-title { font-size: 4.6cqw; font-weight: 700; line-height: 1.25; color: var(--paper); }
+.lane-text { font-size: 3.2cqw; line-height: 1.42; color: var(--muted); }
+.handoff { display: flex; align-items: center; gap: 2.4cqw; padding: 1.6cqw 0 1.6cqw 4.4cqw; }
+.handoff-line { width: .5cqw; height: 6cqw; background: var(--accent); border-radius: 1cqw; }
+.handoff-text { font-size: 3cqw; font-weight: 600; color: var(--accent); }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4cqw; }
+.tile { min-width: 0; border: 1px solid var(--line); border-radius: 2.4cqw; padding: 3cqw 2.6cqw; display: flex; flex-direction: column; gap: 1cqw; }
+.tile-k { font-size: 3.3cqw; font-weight: 700; line-height: 1.25; color: var(--paper); }
+.tile-v { font-size: 2.9cqw; line-height: 1.4; color: var(--muted); }
+
+/* usp */
+.cmp { display: flex; flex-direction: column; gap: 2.6cqw; }
+.cmp-card { background: #18181b; border: 1px solid var(--line); border-radius: 3cqw; padding: 3.6cqw 4cqw; display: flex; flex-direction: column; gap: 2.2cqw; }
+.cmp-card.ours { border-color: var(--accent); }
+.cmp-head { display: flex; justify-content: space-between; gap: 2cqw; font-size: 2.7cqw; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.cmp-card.ours .cmp-head { color: var(--accent); }
+.dots { display: grid; grid-template-columns: repeat(15, 1fr); gap: 1.2cqw; }
+.dot { aspect-ratio: 1; border-radius: 50%; background: var(--muted); }
+.dot.hook { background: var(--accent); }
+.dot.maybe { background: transparent; border: .45cqw solid var(--accent); box-sizing: border-box; }
+.cmp-cap { font-size: 3.3cqw; line-height: 1.4; color: var(--muted); }
+.cmp-cap b { color: var(--paper); }
+.cmp-card.ours .cmp-cap b { color: var(--accent); }
+.legend { display: flex; flex-wrap: wrap; gap: 1.4cqw 4cqw; font-size: 2.7cqw; color: var(--dim); }
+.legend span { display: inline-flex; align-items: center; gap: 1.4cqw; }
+.legend i { display: inline-block; width: 2.6cqw; height: 2.6cqw; border-radius: 50%; background: var(--muted); }
+.legend i.hook { background: var(--accent); }
+.legend i.maybe { background: transparent; border: .45cqw solid var(--accent); box-sizing: border-box; }
+.gains { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2.2cqw; }
+.gain { display: grid; grid-template-columns: .6cqw 1fr; gap: 3cqw; }
+.gain::before { content: ""; background: var(--accent); border-radius: 1cqw; }
+.gain-k { font-size: 3.5cqw; font-weight: 700; line-height: 1.3; color: var(--paper); }
+.gain-v { font-size: 3cqw; line-height: 1.4; color: var(--muted); }
+.fine { font-size: 2.9cqw; line-height: 1.45; color: var(--dim); }
+
+/* proof bars */
+.metric { display: flex; flex-direction: column; gap: 2.4cqw; }
+.metric-k { font-size: 2.7cqw; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.brow { display: flex; flex-direction: column; gap: 1cqw; }
+.brow-top { display: flex; justify-content: space-between; align-items: baseline; gap: 2cqw; }
+.brow-name { font-size: 3.1cqw; color: var(--muted); }
+.brow-val { font-family: var(--display); font-weight: 700; font-size: 3.6cqw; color: var(--paper); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.brow.ours .brow-val { color: var(--accent); }
+.track { height: 3.2cqw; border-radius: 1cqw; background: #1f1f23; overflow: hidden; }
+.fill { height: 100%; min-width: .9cqw; border-radius: 1cqw; background: var(--muted); }
+.brow.ours .fill { background: var(--accent); }
+.steps2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; }
+.st { min-width: 0; background: #18181b; border: 1px solid var(--line); border-radius: 2.4cqw; padding: 3cqw 3.4cqw; display: flex; flex-direction: column; gap: .8cqw; }
+.st-n { font-family: var(--display); font-weight: 700; font-size: 6cqw; line-height: 1.05; color: var(--paper); font-variant-numeric: tabular-nums; }
+.st:last-child .st-n { color: var(--accent); }
+.st-l { font-size: 3cqw; line-height: 1.4; color: var(--muted); }
+
+/* experience with screenshots */
+.block { display: flex; flex-direction: column; gap: 2.2cqw; }
+.shot { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 2.4cqw; border: 1px solid var(--line); box-sizing: border-box; }
+.shot.hero { height: 34cqw; object-fit: cover; object-position: center 45%; }
+.shot-row { display: flex; gap: 2cqw; align-items: stretch; }
+.shot-row .shot { width: auto; min-width: 0; height: 17cqw; object-fit: cover; }
+.shot-row .shot.w1 { flex: 1.68; }
+.shot-row .shot.w2 { flex: 3.43; }
+.caption { font-size: 2.7cqw; line-height: 1.4; color: var(--dim); }
+.block-text { font-size: 3.2cqw; line-height: 1.42; color: var(--muted); }
+.block-text b { color: var(--paper); font-weight: 700; }
+
+/* team */
+.roles { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; }
+.role { min-width: 0; background: #18181b; border: 1px solid var(--line); border-radius: 2.4cqw; padding: 3.2cqw 3.4cqw; display: flex; flex-direction: column; gap: 1cqw; }
+.roles.core .role { border-color: #5a3a2a; }
+.roles.extra .role { background: transparent; border-style: dashed; }
+.role-k { font-size: 3.7cqw; font-weight: 700; line-height: 1.25; color: var(--paper); }
+.role-v { font-size: 3cqw; line-height: 1.4; color: var(--muted); }
+.role-v b { color: var(--accent); font-weight: 700; }
+
+/* uzbekistan case */
+.frows { display: flex; flex-direction: column; gap: 1.5cqw; }
+.frow { display: grid; grid-template-columns: 27cqw 1fr 11cqw; gap: 2cqw; align-items: center; }
+.frow-name { font-size: 3cqw; color: var(--muted); line-height: 1.25; }
+.frow-track { height: 2.8cqw; background: #1f1f23; border-radius: 1cqw; overflow: hidden; }
+.frow-fill { height: 100%; min-width: .8cqw; background: var(--muted); border-radius: 1cqw; }
+.frow.hot .frow-fill { background: var(--accent); }
+.frow-val { font-family: var(--display); font-weight: 700; font-size: 3.3cqw; text-align: right; color: var(--paper); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.frow.hot .frow-val, .frow.hot .frow-name { color: var(--accent); }
+.result { display: flex; justify-content: space-between; align-items: baseline; gap: 3cqw; border-top: 1px solid var(--line); padding-top: 2.4cqw; }
+.result-big { font-family: var(--display); font-weight: 700; font-size: 5.4cqw; line-height: 1.1; color: var(--accent); white-space: nowrap; }
+.result-note { font-size: 2.9cqw; line-height: 1.35; color: var(--muted); text-align: right; }
+
+/* client channels */
+.chan { background: #18181b; border: 1px solid var(--line); border-radius: 3cqw; padding: 3.6cqw 4cqw; display: flex; flex-direction: column; gap: 1.6cqw; }
+.chan.main { border-color: var(--accent); }
+.chan-head { display: flex; justify-content: space-between; align-items: baseline; gap: 3cqw; }
+.chan-k { font-size: 2.7cqw; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.chan.main .chan-k { color: var(--accent); }
+.chan-big { font-family: var(--display); font-weight: 700; font-size: 6cqw; line-height: 1; color: var(--paper); white-space: nowrap; }
+.chan-title { font-size: 4cqw; font-weight: 700; line-height: 1.25; color: var(--paper); }
+.chan-text { font-size: 3cqw; line-height: 1.42; color: var(--muted); }
+.chan-text b { color: var(--paper); }
+.mini-chips { display: flex; flex-wrap: wrap; gap: 1.4cqw; }
+.mini-chips span { font-size: 2.8cqw; font-weight: 600; color: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 1cqw 2.6cqw; font-variant-numeric: tabular-nums; }
+.reels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; }
+.reel { min-width: 0; display: flex; flex-direction: column; gap: 1cqw; }
+.reel img { display: block; width: 100%; max-width: 100%; aspect-ratio: 420 / 750; object-fit: cover; border-radius: 1.6cqw; }
+.reel span { font-family: var(--display); font-weight: 700; font-size: 3.4cqw; color: var(--paper); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; }
+.pair .chan { min-width: 0; }
+.pair .chan-title { font-size: 3.6cqw; }
+.thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6cqw; }
+.thumbs img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 1.6cqw; }
+
+/* economics */
+.slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8cqw; }
+.slot { min-width: 0; border: 1px solid var(--accent); border-radius: 2.4cqw; padding: 3cqw 1.6cqw; display: flex; flex-direction: column; align-items: center; gap: .8cqw; background: #1d1612; }
+.slot-n { font-size: 2.6cqw; color: var(--dim); letter-spacing: .08em; text-transform: uppercase; }
+.slot-v { font-family: var(--display); font-weight: 700; font-size: 3.6cqw; color: var(--paper); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.facts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.facts li { display: flex; justify-content: space-between; align-items: baseline; gap: 3cqw; padding: 2cqw 0; border-bottom: 1px solid var(--line); }
+.facts .fk { font-size: 3.1cqw; color: var(--muted); line-height: 1.35; }
+.facts .fv { font-size: 3.3cqw; font-weight: 700; color: var(--paper); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* use of funds */
+.total { display: flex; justify-content: space-between; align-items: baseline; gap: 3cqw; }
+.total-big { font-family: var(--display); font-weight: 800; font-size: 11cqw; line-height: 1; color: var(--paper); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.total-note { font-size: 3cqw; color: var(--dim); text-align: right; line-height: 1.35; }
+.stack { display: flex; height: 7cqw; border-radius: 1.6cqw; overflow: hidden; gap: .6cqw; }
+.seg-a { flex: 10000; background: var(--accent); }
+.seg-b { flex: 3500; background: var(--muted); }
+.split { display: flex; flex-direction: column; gap: 2.6cqw; }
+.split-row { display: grid; grid-template-columns: 2.6cqw 1fr; gap: 3cqw; align-items: start; }
+.split-dot { width: 2.6cqw; height: 2.6cqw; border-radius: .6cqw; margin-top: 1.4cqw; }
+.split-dot.a { background: var(--accent); }
+.split-dot.b { background: var(--muted); }
+.split-v { font-family: var(--display); font-weight: 700; font-size: 5cqw; line-height: 1.2; color: var(--paper); font-variant-numeric: tabular-nums; }
+.split-k { font-size: 3.2cqw; line-height: 1.42; color: var(--muted); }
+.split-k b { color: var(--paper); }
+
+/* repayment chart */
+.chart-wrap { position: relative; }
+.chart { position: relative; height: 40cqw; display: grid; grid-template-columns: repeat(7, 1fr); gap: 2cqw; align-items: end; border-bottom: 1px solid var(--dim); }
+.mo { height: 100%; display: flex; gap: .6cqw; align-items: flex-end; }
+.b { flex: 1; border-radius: .6cqw .6cqw 0 0; background: var(--muted); }
+.b.base { background: var(--accent); }
+.thr { position: absolute; left: 0; right: 0; bottom: 48.4%; border-top: .4cqw dashed var(--paper); }
+.thr-l { position: absolute; left: 0; bottom: calc(48.4% + 1cqw); font-size: 2.7cqw; font-weight: 600; color: var(--paper); background: var(--slide); padding-right: 1.6cqw; }
+.months { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2cqw; margin-top: 1.2cqw; }
+.months span { font-size: 2.6cqw; color: var(--dim); text-align: center; font-variant-numeric: tabular-nums; }
+.legend2 { display: flex; flex-direction: column; gap: 1.4cqw; }
+.leg-row { display: grid; grid-template-columns: 2.6cqw 1fr auto; gap: 2.4cqw; align-items: baseline; }
+.leg-row i { width: 2.6cqw; height: 2.6cqw; border-radius: .6cqw; background: var(--muted); align-self: center; }
+.leg-row i.base { background: var(--accent); }
+.leg-k { font-size: 3cqw; line-height: 1.35; color: var(--muted); }
+.leg-v { font-family: var(--display); font-weight: 700; font-size: 3.6cqw; color: var(--paper); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.leg-row.base .leg-v { color: var(--accent); }
+
+/* risks */
+.risks { display: flex; flex-direction: column; gap: 2.6cqw; }
+.risk { background: #18181b; border: 1px solid var(--line); border-radius: 3cqw; padding: 3.4cqw 4cqw; display: flex; flex-direction: column; gap: 1.4cqw; }
+.risk-top { display: flex; justify-content: space-between; align-items: baseline; gap: 3cqw; }
+.risk-tag { font-size: 2.6cqw; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+.risk-k { font-size: 4cqw; font-weight: 700; line-height: 1.25; color: var(--paper); }
+.risk-a { border-top: 1px solid var(--line); padding-top: 1.6cqw; font-size: 3.1cqw; line-height: 1.42; color: var(--muted); }
+.risk-a b { color: var(--accent); font-weight: 700; }
+
+.statement { font-size: 4cqw; font-weight: 600; line-height: 1.4; color: var(--paper); text-wrap: balance; }
+.statement em { font-style: normal; color: var(--accent); }
+
+/* notes */
+.notes {
+  width: min(100%, calc((100svh - 48px) * 9 / 16));
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #1b1b1f; border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; font-size: 15px; line-height: 1.55; color: var(--muted);
+}
+.notes b { display: block; color: var(--paper); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+.toggle {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  font: 600 14px var(--text); color: var(--paper);
+  background: #222227; border: 1px solid #3a3a40; border-radius: 999px;
+  padding: 10px 16px; cursor: pointer;
+}
+.toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.toggle[aria-pressed="true"] { background: var(--accent); color: #141416; border-color: var(--accent); }
+</style>
+<style>*,*::before,*::after{box-sizing:border-box} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+
+<main class="deck">
+
+  <section class="frame" id="s1">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="top">
+        <p class="eyebrow">Инвестиционное<br>предложение</p>
+        <p class="counter">01 / 18</p>
+      </div>
+      <div class="spacer"></div>
+      <h1 class="cover-title">Маркетинговое агентство полного цикла</h1>
+      <p class="cover-sub">для малого и среднего бизнеса Узбекистана</p>
+      <div class="spacer"></div>
+      <div class="ask">
+        <p class="ask-label">Запрос</p>
+        <p class="ask-kind">Займ под процент</p>
+        <p class="ask-sum">13 500 $</p>
+      </div>
+      <div class="byline"><span>Adan Jabbar</span><span>Ташкент · октябрь 2026</span></div>
+    </div>
+  </section>
+
+  <section class="frame" id="s2">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Почему к вам</p>
+        <p class="counter">02 / 18</p>
+      </div>
+      <h2 class="title">Вы знаете меня дольше, чем любой инвестор</h2>
+      <p class="lead">И видели меня не с лучшей стороны.</p>
+      <div class="spacer"></div>
+      <ol class="timeline">
+        <li class="tl-item">
+          <span class="tl-year">2022</span>
+          <div>
+            <p class="tl-what">Помощник в вашем бизнесе</p>
+            <p class="tl-detail">Мне 21–22 года. Не понимал, как устроен бизнес, и был плохим наёмным сотрудником</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2022–<br>2023</span>
+          <div>
+            <p class="tl-what">Первые свои бизнесы</p>
+            <p class="tl-detail">Дропшиппинг на Uzum и обучение ораторскому искусству. Кассовый разрыв и слитый бюджет</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2022–<br>2026</span>
+          <div>
+            <p class="tl-what">Креативная индустрия и маркетинг</p>
+            <p class="tl-detail">Продакшен, промо-кампании, продвижение брендов и артистов в четырёх странах</p>
+          </div>
+        </li>
+        <li class="tl-item now">
+          <span class="tl-year">2026</span>
+          <div>
+            <p class="tl-what">Своё агентство</p>
+            <p class="tl-detail">Перезапуск обучения уже работает. Теперь агентство: команда, опыт и клиентский поток</p>
+          </div>
+        </li>
+      </ol>
+      <div class="spacer"></div>
+      <div>
+        <p class="foot-label">Проекты в четырёх странах</p>
+        <div class="chips">
+          <span class="chip">Узбекистан</span>
+          <span class="chip">Казахстан</span>
+          <span class="chip">Кыргызстан</span>
+          <span class="chip">Россия</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame" id="s3">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Мой опыт в бизнесе</p>
+        <p class="counter">03 / 18</p>
+      </div>
+      <h2 class="title">Три бизнеса до агентства</h2>
+      <div class="spacer"></div>
+      <div class="cases">
+        <div class="case">
+          <div class="case-meta"><span>2022–2023</span><span class="case-status">Продавал → кассовый разрыв</span></div>
+          <p class="case-title">Дропшиппинг на Uzum</p>
+          <p class="case-text">Постельное бельё и кухонные товары. Продажи шли, но я не умел считать деньги. Кассовый разрыв — 7–8 месяцев продаж, продал долю партнёру.</p>
+          <p class="case-lesson">Урок: даже рабочий бизнес без подушки не выживает.</p>
+        </div>
+        <div class="case">
+          <div class="case-meta"><span>2023</span><span class="case-status">Не попал в рынок</span></div>
+          <p class="case-title">Обучение ораторскому искусству</p>
+          <p class="case-text">Не попал в оффер и цену, слил бюджет на рекламу и ушёл в услуги.</p>
+          <p class="case-lesson">Урок: реклама не спасает продукт, который не попал в рынок.</p>
+        </div>
+        <div class="case now">
+          <div class="case-meta"><span>2026</span><span class="case-status">Работает</span></div>
+          <p class="case-title">Та же ниша, новый оффер</p>
+          <p class="case-text">Запустили вместе с супругой: обучение в группах, органика плюс таргет. За 20 дней — 2 группы и 3 500 $ выручки.</p>
+          <p class="case-lesson">Урок: сначала попадание в рынок, потом бюджет.</p>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <p class="punch">Поэтому в этом займе 7 месяцев подушки и нет офиса.</p>
+    </div>
+  </section>
+
+  <section class="frame" id="s4">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Проблема рынка</p>
+        <p class="counter">04 / 18</p>
+      </div>
+      <h2 class="title">Выключили рекламу — заявок ноль</h2>
+      <p class="lead">Собственник платит и за контент, и за рекламу. Заявки приносит только реклама, и только пока за неё платят.</p>
+      <div class="spacer"></div>
+      <div class="states">
+        <div class="state">
+          <p class="state-head">Бюджет на рекламу есть</p>
+          <div class="state-row"><p class="state-src">Контент</p><p class="state-res">Лежит на странице</p></div>
+          <div class="state-row"><p class="state-src">Реклама</p><p class="state-res hot">Приводит заявки</p></div>
+          <p class="state-total">Заявки идут</p>
+        </div>
+        <div class="state">
+          <p class="state-head">Бюджет закрыли</p>
+          <div class="state-row"><p class="state-src">Контент</p><p class="state-res">Лежит на странице</p></div>
+          <div class="state-row"><p class="state-src">Реклама</p><p class="state-res">Остановлена</p></div>
+          <p class="state-total">0 заявок</p>
+        </div>
+        <div class="state on wide">
+          <p class="state-head">Мой кейс · контент с воронкой, без рекламы</p>
+          <p class="state-big">2 ролика → 350 заявок</p>
+          <p class="state-note">Около 500 тыс. органических просмотров на личном бренде. Заявок пришло больше, чем успевали обработать, поэтому вкладывать в таргет не было смысла.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame" id="s5">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Почему это не решают</p>
+        <p class="counter">05 / 18</p>
+      </div>
+      <h2 class="title">Подрядчику платят за объём, а не за продажи</h2>
+      <div class="spacer"></div>
+      <p class="foot-label">Как устроен договор с SMM</p>
+      <div class="contract">
+        <p class="c-step">Обещали 15 роликов</p>
+        <span class="c-arrow" aria-hidden="true">→</span>
+        <p class="c-step">Сняли 15 роликов</p>
+        <span class="c-arrow" aria-hidden="true">→</span>
+        <p class="c-step">Выставили счёт</p>
+      </div>
+      <p class="c-miss"><b>Купил ли кто-то после роликов</b> — в их отчёт не входит.</p>
+      <div class="spacer"></div>
+      <p class="foot-label">7 этапов от идеи до денег · что видит собственник</p>
+      <ol class="stages">
+        <li class="stage"><span class="stage-n">01</span><span class="stage-name">Сценарий</span><span class="stage-see">не видит</span></li>
+        <li class="stage"><span class="stage-n">02</span><span class="stage-name">Съёмка</span><span class="stage-see">не видит</span></li>
+        <li class="stage"><span class="stage-n">03</span><span class="stage-name">Монтаж</span><span class="stage-see">не видит</span></li>
+        <li class="stage seen"><span class="stage-n">04</span><span class="stage-name">Публикация</span><span class="stage-see">видит просмотры</span></li>
+        <li class="stage"><span class="stage-n">05</span><span class="stage-name">Заявка</span><span class="stage-see">не видит</span></li>
+        <li class="stage"><span class="stage-n">06</span><span class="stage-name">Продажа</span><span class="stage-see">не видит</span></li>
+        <li class="stage"><span class="stage-n">07</span><span class="stage-name">Повторная продажа</span><span class="stage-see">не видит</span></li>
+      </ol>
+      <div class="spacer"></div>
+      <p class="statement">Деньги теряются там, где собственник не смотрит. <em>Команда работает вполсилы, а он платит полную ставку.</em></p>
+    </div>
+  </section>
+
+  <section class="frame" id="s6">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Что делаем мы</p>
+        <p class="counter">06 / 18</p>
+      </div>
+      <h2 class="title">Система двух потоков</h2>
+      <div class="spacer"></div>
+      <div class="lane first">
+        <p class="lane-tag">Поток 1 · бесплатный</p>
+        <p class="lane-title">Органика с воронкой внутри</p>
+        <p class="lane-text">Каждый ролик ведёт к следующему шагу: написать, оставить заявку, купить. Приносит заявки даже в месяц без рекламы.</p>
+      </div>
+      <div class="handoff"><span class="handoff-line" aria-hidden="true"></span><p class="handoff-text">Ролики, которые уже привели заявки, идут в рекламу</p></div>
+      <div class="lane">
+        <p class="lane-tag">Поток 2 · платный</p>
+        <p class="lane-title">Таргет только на проверенное</p>
+        <p class="lane-text">Сначала проверяем бесплатно, потом масштабируем деньгами. Бюджет не уходит на угадывание.</p>
+      </div>
+      <div class="spacer"></div>
+      <p class="foot-label">Поверх системы</p>
+      <div class="tiles">
+        <div class="tile"><p class="tile-k">Карта метрик</p><p class="tile-v">Какую цифру спрашивать на каждом из 7 этапов</p></div>
+        <div class="tile"><p class="tile-k">3 источника контента</p><p class="tile-v">Клиенты, сотрудники, основатель</p></div>
+        <div class="tile"><p class="tile-k">Русский и узбекский</p><p class="tile-v">Пишем и снимаем на обоих языках</p></div>
+      </div>
+      <div class="spacer"></div>
+      <p class="statement">Всё делает одна команда: <em>сценарий, съёмка, монтаж, маркетинг, таргет и продажи.</em></p>
+    </div>
+  </section>
+
+  <section class="frame" id="s7">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Наше УТП</p>
+        <p class="counter">07 / 18</p>
+      </div>
+      <h2 class="title">За ту же цену — 30–45 версий вместо 15</h2>
+      <p class="lead">Судьба ролика решается в первые 2 секунды. Поэтому на каждый ролик мы делаем 1–2 дополнительных хука.</p>
+      <div class="spacer"></div>
+      <div class="cmp">
+        <div class="cmp-card">
+          <p class="cmp-head"><span>Рынок</span><span>1 500–2 000 $</span></p>
+          <div class="dots" aria-hidden="true">
+            <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+          </div>
+          <p class="cmp-cap"><b>15 роликов = 15 попыток.</b> Ролик со слабым началом просто пропадает.</p>
+        </div>
+        <div class="cmp-card ours">
+          <p class="cmp-head"><span>Мы</span><span>Та же цена</span></p>
+          <div class="dots" aria-hidden="true">
+            <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+            <i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i><i class="dot hook"></i>
+            <i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i><i class="dot maybe"></i>
+          </div>
+          <p class="cmp-cap"><b>15 роликов × 2–3 версии = 30–45 попыток.</b> У каждой идеи две-три попытки выйти в органику.</p>
+          <p class="legend"><span><i></i>ролик</span><span><i class="hook"></i>второй хук</span><span><i class="maybe"></i>третий хук</span></p>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <p class="foot-label">Что это даёт клиенту</p>
+      <ul class="gains">
+        <li class="gain"><div><p class="gain-k">Гипотезы проверяются бесплатно</p><p class="gain-v">В органике, а не за счёт рекламного бюджета</p></div></li>
+        <li class="gain"><div><p class="gain-k">Рекламы нужно в разы меньше</p><p class="gain-v">Деньги идут только на версии, которые уже сработали</p></div></li>
+        <li class="gain"><div><p class="gain-k">Каждый месяц точнее предыдущего</p><p class="gain-v">Данные о нише копятся в 2–3 раза быстрее</p></div></li>
+      </ul>
+      <div class="spacer"></div>
+      <p class="fine">Версии тестируем через пробные рилс для неподписчиков и перезаливаем в ленту через 7–10 дней, чтобы подписчики не видели повторов.</p>
+    </div>
+  </section>
+
+  <section class="frame" id="s8">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Доказательство</p>
+        <p class="counter">08 / 18</p>
+      </div>
+      <h2 class="title">Охват — это только половина</h2>
+      <div class="spacer"></div>
+      <div class="metric">
+        <p class="metric-k">Охват</p>
+        <div class="brow">
+          <div class="brow-top"><span class="brow-name">«Заметки рэпера», 108 тыс. за месяц</span><span class="brow-val">44 млн</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </div>
+        <div class="brow ours">
+          <div class="brow-top"><span class="brow-name">2 ролика с воронкой</span><span class="brow-val">500 тыс.</span></div>
+          <div class="track"><div class="fill" style="width:1.1%"></div></div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="metric">
+        <p class="metric-k">Деньги</p>
+        <div class="brow">
+          <div class="brow-top"><span class="brow-name">«Заметки рэпера»</span><span class="brow-val">~1 400 $</span></div>
+          <div class="track"><div class="fill" style="width:7.4%"></div></div>
+        </div>
+        <div class="brow ours">
+          <div class="brow-top"><span class="brow-name">2 ролика с воронкой, без рекламы</span><span class="brow-val">19 000+ $</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <p class="foot-label">Как 2 ролика превратились в деньги</p>
+      <div class="steps2">
+        <div class="st"><p class="st-n">500 тыс.</p><p class="st-l">просмотров без рекламы</p></div>
+        <div class="st"><p class="st-n">350</p><p class="st-l">заявок в Telegram</p></div>
+        <div class="st"><p class="st-n">35</p><p class="st-l">консультаций, цена выросла с 50 до 350 $</p></div>
+        <div class="st"><p class="st-n">4</p><p class="st-l">клиента на ведение, чек 3–5 тыс. $</p></div>
+      </div>
+      <div class="spacer"></div>
+      <p class="statement">В 88 раз меньше охвата и в 13 раз больше денег. <em>Разница — воронка внутри контента.</em></p>
+    </div>
+  </section>
+
+  <section class="frame" id="s9">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Опыт · 1 из 2</p>
+        <p class="counter">09 / 18</p>
+      </div>
+      <h2 class="title">Coca-Cola и лейбл özen</h2>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Coca-Cola · Казахстан и Узбекистан</p>
+        <img class="shot hero" src="img/cypher.jpg" alt="Обложка клипа Uzbekistan Coca-Cola Cypher на канале özen">
+        <p class="block-text"><b>2021</b> — в кадре как артист: Coca-Cola Cypher и Live-серия Coca-Cola × özen. <b>2022</b> — вместе с командой из Казахстана готовил и снимал узбекскую промо-кампанию Coca-Cola.</p>
+      </div>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Лейбл özen · препродакшен и площадка</p>
+        <img class="shot" src="img/uade.jpg" alt="Клип Shiza и Ulukmanapo — Uade на канале özen, 28 млн просмотров">
+        <img class="shot" src="img/cafe1.jpg" alt="Hey Monro — Õmir, серия özen cafe, 590 тыс. просмотров">
+        <p class="block-text">Креативный и идейный продюсер, продюсер на смене: концепция, договорённости внутри команды, процессы съёмки. Пост-продакшен вёл другой человек из команды.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame" id="s10">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Опыт · 2 из 2</p>
+        <p class="counter">10 / 18</p>
+      </div>
+      <h2 class="title">Сериал и продакшен в Москве</h2>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Кыргызстан · «Миллионеры из общаги»</p>
+        <img class="shot" src="img/series1.jpg" alt="Первая серия сериала «Миллионеры из общаги» на YouTube, 4,1 млн просмотров">
+        <p class="block-text"><b>Главная роль</b> и промо сериала вместе с командой маркетинга. Серии на YouTube — от 1 до 4,1 млн просмотров, <b>больше 16 млн суммарно</b>.</p>
+      </div>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Москва · продакшен внутри Black Star</p>
+        <img class="shot" src="img/blackstar.jpg" alt="Кадры серии промо-роликов Black Star × Автодор">
+        <div class="shot-row">
+          <img class="shot w1" src="img/snizov.jpg" alt="Кадры сниппетов для SNIZOV">
+          <img class="shot w2" src="img/jony-enikeeva.jpg" alt="Кадры сниппетов для JONY и Али Еникеевой">
+        </div>
+        <p class="caption">Промо Black Star × Автодор · сниппеты SNIZOV · JONY и Аля Еникеева</p>
+        <p class="block-text">Заходили на продакшен крупных артистов через партнёра в лейбле «Изба». Из Москвы ушли сами: <b>наш рынок — Узбекистан</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame" id="s11">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Команда</p>
+        <p class="counter">11 / 18</p>
+      </div>
+      <h2 class="title">Ядро — 4 человека, с которыми я работаю годами</h2>
+      <div class="spacer"></div>
+      <p class="foot-label">В штате · очно</p>
+      <div class="roles core">
+        <div class="role"><p class="role-k">Режиссёр-сценарист</p><p class="role-v">Пишет сценарий и сам ставит его на площадке</p></div>
+        <div class="role"><p class="role-k">Оператор-монтажёр</p><p class="role-v">Снимает с пониманием, как это будет смонтировано</p></div>
+        <div class="role"><p class="role-k">Маркетолог</p><p class="role-v">Из холдинга Abozor: воронки, креативы, контроль таргета</p></div>
+        <div class="role"><p class="role-k">Менеджер по продажам</p><p class="role-v"><b>100 $ фикс</b>, остальное — процент с закрытых сделок</p></div>
+      </div>
+      <div class="spacer"></div>
+      <p class="foot-label">Подключаются по задаче · не нагружают фонд</p>
+      <div class="roles extra">
+        <div class="role"><p class="role-k">Монтажёр</p><p class="role-v">Получает фикс с других проектов, включён в наши процессы</p></div>
+        <div class="role"><p class="role-k">Таргетолог</p><p class="role-v">Подрядчик, 200–300 $ с проекта, только после теста в органике</p></div>
+      </div>
+      <div class="spacer"></div>
+      <p class="statement">Я отвечаю за стратегию и клиентов. <em>Команда работает на русском и узбекском.</em></p>
+    </div>
+  </section>
+
+  <section class="frame" id="s12">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Опыт на рынке Узбекистана</p>
+        <p class="counter">12 / 18</p>
+      </div>
+      <h2 class="title">Самый тяжёлый B2B: спецтехника за 40–100 тыс. $</h2>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Автомагистраль (холдинг Abozor) · 1–21 сентября</p>
+        <div class="frows">
+          <div class="frow"><span class="frow-name">Заявки из рекламы</span><div class="frow-track"><div class="frow-fill" style="width:100%"></div></div><span class="frow-val">407</span></div>
+          <div class="frow"><span class="frow-name">Квалифицированы</span><div class="frow-track"><div class="frow-fill" style="width:67.8%"></div></div><span class="frow-val">276</span></div>
+          <div class="frow"><span class="frow-name">Приехали в салон</span><div class="frow-track"><div class="frow-fill" style="width:8.6%"></div></div><span class="frow-val">35</span></div>
+          <div class="frow"><span class="frow-name">Выдано договоров</span><div class="frow-track"><div class="frow-fill" style="width:9.3%"></div></div><span class="frow-val">38</span></div>
+          <div class="frow hot"><span class="frow-name">Продажи</span><div class="frow-track"><div class="frow-fill" style="width:4.7%"></div></div><span class="frow-val">19</span></div>
+        </div>
+        <div class="result">
+          <p class="result-big">17,1 млрд сум</p>
+          <p class="result-note">≈ 1,3–1,4 млн $<br>за три недели</p>
+        </div>
+        <p class="caption">Октябрь, 1–22: около 2 200 заявок при расходе ~2 500 $, примерно 1,1 $ за заявку. Продаёт отдел продаж клиента, мы отвечаем за поток заявок.</p>
+      </div>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Кто приходит квалифицированным</p>
+        <div class="frows">
+          <div class="frow"><span class="frow-name">Рекламные лид-формы</span><div class="frow-track"><div class="frow-fill" style="width:36%"></div></div><span class="frow-val">36%</span></div>
+          <div class="frow hot"><span class="frow-name">Instagram, контент</span><div class="frow-track"><div class="frow-fill" style="width:92%"></div></div><span class="frow-val">92%</span></div>
+          <div class="frow hot"><span class="frow-name">YouTube, контент</span><div class="frow-track"><div class="frow-fill" style="width:98%"></div></div><span class="frow-val">98%</span></div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Abozor · электромобили из Китая</p>
+        <img class="shot" src="img/abozor-ads.jpg" alt="Рекламный кабинет Meta: кампании Li, Zeekr, Lynk Co, Voyah, Deepal, Seres, около 1 $ за заявку">
+        <p class="caption">163 заявки за 163 $ — доллар за заявку на машину стоимостью в десятки тысяч.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame" id="s13">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Откуда клиенты</p>
+        <p class="counter">13 / 18</p>
+      </div>
+      <h2 class="title">Поток клиентов есть ещё до запуска</h2>
+      <div class="spacer"></div>
+      <div class="chan main">
+        <div class="chan-head"><p class="chan-k">Личный бренд</p><p class="chan-big">~120 тыс.</p></div>
+        <div class="mini-chips"><span>Instagram 90 тыс.</span><span>TikTok 24 тыс.</span><span>YouTube 5,5 тыс.</span></div>
+        <div class="reels">
+          <div class="reel"><img src="img/reel-42.jpg" alt="Рилс в Instagram, 4,2 млн просмотров"><span>4,2 млн</span></div>
+          <div class="reel"><img src="img/reel-30.jpg" alt="Рилс в Instagram, 3 млн просмотров"><span>3 млн</span></div>
+          <div class="reel"><img src="img/reel-16.jpg" alt="Рилс в Instagram, 1,6 млн просмотров"><span>1,6 млн</span></div>
+          <div class="reel"><img src="img/reel-15.jpg" alt="Рилс в Instagram, 1,5 млн просмотров"><span>1,5 млн</span></div>
+        </div>
+        <p class="chan-text"><b>16 рилсов больше миллиона просмотров.</b> Блог уже приносит заявки на продвижение чужих бизнесов: сейчас они идут мне лично, с запуском пойдут в агентство.</p>
+      </div>
+      <div class="spacer"></div>
+      <div class="pair">
+        <div class="chan">
+          <p class="chan-k">1 ноября</p>
+          <p class="chan-title">Мастер-класс на 25 собственников</p>
+          <p class="chan-text">Отбор клиентов: <b>один на нишу</b>, первый ролик в подарок.</p>
+        </div>
+        <div class="chan">
+          <p class="chan-k">Свой кейс</p>
+          <p class="chan-title">Бутик оригинальной техники</p>
+          <p class="chan-text">Я партнёр. Переводим с рекламы у блогеров на органику с воронкой.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="frame" id="s14">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Экономика</p>
+        <p class="counter">14 / 18</p>
+      </div>
+      <h2 class="title">Один клиент покрывает зарплату всей команды</h2>
+      <div class="spacer"></div>
+      <div class="metric">
+        <p class="metric-k">В месяц</p>
+        <div class="brow">
+          <div class="brow-top"><span class="brow-name">Зарплатный фонд команды</span><span class="brow-val">~1 430 $</span></div>
+          <div class="track"><div class="fill" style="width:71.5%"></div></div>
+        </div>
+        <div class="brow ours">
+          <div class="brow-top"><span class="brow-name">Один клиент, средний чек</span><span class="brow-val">2 000 $</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Мощность текущей команды · 4 клиента одновременно</p>
+        <div class="slots">
+          <div class="slot"><span class="slot-n">Клиент 1</span><span class="slot-v">2 000 $</span></div>
+          <div class="slot"><span class="slot-n">Клиент 2</span><span class="slot-v">2 000 $</span></div>
+          <div class="slot"><span class="slot-n">Клиент 3</span><span class="slot-v">2 000 $</span></div>
+          <div class="slot"><span class="slot-n">Клиент 4</span><span class="slot-v">2 000 $</span></div>
+        </div>
+        <div class="result">
+          <p class="result-big">8 000 $</p>
+          <p class="result-note">в месяц<br>на полной загрузке</p>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <ul class="facts">
+        <li><span class="fk">Пакеты</span><span class="fv">1 500–2 500 $</span></li>
+        <li><span class="fk">Рекламный бюджет</span><span class="fv">клиент платит отдельно</span></li>
+        <li><span class="fk">Рост после 4 клиентов</span><span class="fv">+1 монтажёр на 2 клиента</span></li>
+      </ul>
+      <div class="spacer"></div>
+      <p class="statement">Первый клиент платит зарплаты команды. <em>Со второго агентство начинает зарабатывать.</em></p>
+    </div>
+  </section>
+
+  <section class="frame" id="s15">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">На что пойдут деньги</p>
+        <p class="counter">15 / 18</p>
+      </div>
+      <h2 class="title">Займ идёт в устойчивость, а не в оборудование</h2>
+      <div class="spacer"></div>
+      <div class="total">
+        <p class="total-big">13 500 $</p>
+        <p class="total-note">займ<br>под процент</p>
+      </div>
+      <div class="stack" role="img" aria-label="10 000 долларов на зарплаты и 3 500 долларов на технику и рекламу"><div class="seg-a"></div><div class="seg-b"></div></div>
+      <div class="spacer"></div>
+      <div class="split">
+        <div class="split-row"><span class="split-dot a" aria-hidden="true"></span><div><p class="split-v">10 000 $</p><p class="split-k"><b>Зарплаты ядра команды на 7 месяцев.</b> Около 1 430 $ в месяц: команда спокойно работает, пока набираем клиентов.</p></div></div>
+        <div class="split-row"><span class="split-dot b" aria-hidden="true"></span><div><p class="split-v">3 500 $</p><p class="split-k"><b>Недостающая техника и реклама агентства.</b> 90% техники для запуска у нас уже есть.</p></div></div>
+      </div>
+      <div class="spacer"></div>
+      <div class="chan">
+        <p class="chan-k">Не входит в займ</p>
+        <p class="chan-title">Офис</p>
+        <p class="chan-text">Откроем на выручку первых клиентов. Офис до клиентов — расход, который не приносит денег.</p>
+      </div>
+      <div class="spacer"></div>
+      <p class="statement">7 месяцев подушки, чтобы <em>выбирать клиентов, а не хвататься за любых.</em></p>
+    </div>
+  </section>
+
+  <section class="frame" id="s16">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Возврат займа</p>
+        <p class="counter">16 / 18</p>
+      </div>
+      <h2 class="title">Зарплаты оплачены заранее, поэтому выручка идёт на возврат</h2>
+      <div class="spacer"></div>
+      <div class="block">
+        <p class="metric-k">Свободные деньги нарастающим итогом, по месяцам</p>
+        <div class="chart-wrap">
+          <div class="chart" role="img" aria-label="Осторожный сценарий покрывает 13 500 долларов к 7-му месяцу, базовый к 5-му">
+            <div class="mo"><div class="b" style="height:0%"></div><div class="b base" style="height:0%"></div></div>
+            <div class="mo"><div class="b" style="height:5.6%"></div><div class="b base" style="height:5.6%"></div></div>
+            <div class="mo"><div class="b" style="height:11.1%"></div><div class="b base" style="height:16.7%"></div></div>
+            <div class="mo"><div class="b" style="height:22.2%"></div><div class="b base" style="height:33.3%"></div></div>
+            <div class="mo"><div class="b" style="height:33.3%"></div><div class="b base" style="height:55.6%"></div></div>
+            <div class="mo"><div class="b" style="height:44.4%"></div><div class="b base" style="height:77.8%"></div></div>
+            <div class="mo"><div class="b" style="height:55.6%"></div><div class="b base" style="height:100%"></div></div>
+            <div class="thr" aria-hidden="true"></div>
+            <p class="thr-l">Сумма займа 13 500 $</p>
+          </div>
+          <div class="months"><span>1 мес</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+        </div>
+        <div class="legend2">
+          <div class="leg-row"><i></i><span class="leg-k">Осторожно: 2 клиента к 4-му месяцу</span><span class="leg-v">15 500 $</span></div>
+          <div class="leg-row base"><i class="base"></i><span class="leg-k">База: 4 клиента к 5-му месяцу</span><span class="leg-v">27 900 $</span></div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="chan main">
+        <p class="chan-k">Если придёт только один клиент</p>
+        <p class="chan-text"><b>Он покрывает зарплаты команды, а займ я возвращаю из других своих доходов.</b> Ваш возврат не зависит от того, как быстро мы наберём клиентов.</p>
+      </div>
+      <div class="spacer"></div>
+      <p class="fine">Свободные деньги с клиента ≈ 1 550 $ в месяц: чек 2 000 $ минус таргетолог и процент продажника. Ставку и график возврата обсуждаем.</p>
+    </div>
+  </section>
+
+  <section class="frame" id="s17">
+    <div class="slide">
+      <div class="top">
+        <p class="eyebrow">Риски</p>
+        <p class="counter">17 / 18</p>
+      </div>
+      <h2 class="title">Риски, которые я вижу сам</h2>
+      <div class="spacer"></div>
+      <div class="risks">
+        <div class="risk">
+          <div class="risk-top"><p class="risk-k">Клиенты придут медленнее</p><span class="risk-tag">Риск 1</span></div>
+          <p class="risk-a"><b>7 месяцев зарплат уже оплачены.</b> Для возврата нужны 2 клиента, а не 20. Если будет один, займ возвращаю из своих доходов.</p>
+        </div>
+        <div class="risk">
+          <div class="risk-top"><p class="risk-k">Команда уйдёт посреди работы</p><span class="risk-tag">Риск 2</span></div>
+          <p class="risk-a"><b>Ядро работает со мной годами.</b> Продажник на проценте: зарабатывает, только когда закрывает сделки.</p>
+        </div>
+        <div class="risk">
+          <div class="risk-top"><p class="risk-k">Всё держится на мне</p><span class="risk-tag">Риск 3</span></div>
+          <p class="risk-a"><b>Роли распределены.</b> Маркетолог сам вёл бизнес с продажами на миллионы долларов. Сценарий, съёмка, монтаж и продажи — у отдельных людей.</p>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <p class="statement">Кассовый разрыв, который убил мой первый бизнес, <em>здесь закрыт подушкой с первого дня.</em></p>
+    </div>
+  </section>
+
+  <section class="frame" id="s18">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="top">
+        <p class="eyebrow">Запрос</p>
+        <p class="counter">18 / 18</p>
+      </div>
+      <div class="spacer"></div>
+      <div class="ask" style="border-top:none;padding-top:0">
+        <p class="ask-kind">Займ под процент</p>
+        <p class="ask-sum">13 500 $</p>
+      </div>
+      <div class="spacer"></div>
+      <ul class="facts">
+        <li><span class="fk">7 месяцев работы команды</span><span class="fv">10 000 $</span></li>
+        <li><span class="fk">Техника и реклама агентства</span><span class="fv">3 500 $</span></li>
+        <li><span class="fk">Возврат</span><span class="fv">из выручки агентства</span></li>
+        <li><span class="fk">Если клиентов будет мало</span><span class="fv">из моих доходов</span></li>
+      </ul>
+      <div class="spacer"></div>
+      <p class="cover-title" style="font-size:6cqw">Под какой процент вам было бы комфортно?</p>
+      <p class="lead">Ставку и график возврата хочу обсудить с вами.</p>
+      <div class="spacer"></div>
+      <div class="byline"><span>Adan Jabbar</span><span>@uchitayy · +998 97 078 71 31</span></div>
+    </div>
+  </section>
+
+</main>
+
+
+
+</body>
+</html>
